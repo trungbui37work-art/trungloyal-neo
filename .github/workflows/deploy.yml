@@ -6,7 +6,7 @@ on:
       - main   # khi push vào main sẽ trigger
 
 permissions:
-  contents: read,write
+  contents: write
   pages: write
   id-token: write
   
