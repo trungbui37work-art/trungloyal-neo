@@ -82,62 +82,51 @@ export const ContactSection: React.FC = () => {
     });
   };
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  gsap.to('.submit-btn', {
-    scale: 0.95,
-    duration: 0.1,
-    yoyo: true,
-    repeat: 1,
-    ease: 'power2.out'
-  });
-
-  try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycby-wIXGFi0mGXiJFr3PhnSxCaLFjbPGgy9kx1WeZEG9HS2j-_AnoaG_HONQra5KLyC1/exec", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
+    gsap.to('.submit-btn', {
+      scale: 0.95,
+      duration: 0.1,
+      yoyo: true,
+      repeat: 1,
+      ease: 'power2.out'
     });
 
-    if (!response.ok) throw new Error("Network error");
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycby-wIXGFi0mGXiJFr3PhnSxCaLFjbPGgy9kx1WeZEG9HS2j-_AnoaG_HONQra5KLyC1/exec", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    const result = await response.json();
-    console.log("✅ Lưu thành công:", result);
+      if (!response.ok) throw new Error("Network error");
 
-    toast({
-      title: "Message Sent!",
-      description: "Your message has been saved. I'll get back to you soon!",
-    });
+      const result = await response.json();
+      console.log("✅ Lưu thành công:", result);
 
-    setFormData({ name: "", email: "", message: "" });
-  } catch (error) {
-    console.error("❌ Error:", error);
-    toast({
-      title: "Error",
-      description: "Something went wrong. Please try again later.",
-      variant: "destructive",
-    });
-  } finally {
-    setIsSubmitting(false);
-  }
-};
-
-
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
       toast({
         title: "Message Sent!",
-        description: "Thank you for your message. I'll get back to you soon!",
+        description: "Your message has been saved. I'll get back to you soon!",
       });
-      
-      setFormData({ name: '', email: '', message: '' });
+
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("❌ Error:", error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
-  };
+    }
+  }; // <-- Dấu đóng hàm handleSubmit ở đây
+
+  // ----- PHẦN CODE GIẢ LẬP ĐÃ BỊ XÓA BỎ -----
 
   const handleInputFocus = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     gsap.to(e.target, {
@@ -314,4 +303,4 @@ const handleSubmit = async (e: React.FormEvent) => {
       </div>
     </section>
   );
-
+}
