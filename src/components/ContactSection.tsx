@@ -95,7 +95,7 @@ export const ContactSection: React.FC = () => {
     });
 
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbx97GG41xEeQCZAvp62Ky-uFRxWXFeY2SX4KutcijJrgKQYLGTqJiqDNYgluOpyrMh_/exec", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbyl2Fi8q5JafssUQgR8JfqYgd1Xujk8DbTjkmGYhN2s1noJU4f1JMzENHELmVyE5WM9fA/exec", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
