@@ -82,18 +82,50 @@ export const ContactSection: React.FC = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // Animate submit button
-    gsap.to('.submit-btn', {
-      scale: 0.95,
-      duration: 0.1,
-      yoyo: true,
-      repeat: 1,
-      ease: 'power2.out'
+  gsap.to('.submit-btn', {
+    scale: 0.95,
+    duration: 0.1,
+    yoyo: true,
+    repeat: 1,
+    ease: 'power2.out'
+  });
+
+  try {
+    const response = await fetch("https://script.google.com/macros/s/AKfycby-wIXGFi0mGXiJFr3PhnSxCaLFjbPGgy9kx1WeZEG9HS2j-_AnoaG_HONQra5KLyC1/exec", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+
+    if (!response.ok) throw new Error("Network error");
+
+    const result = await response.json();
+    console.log("✅ Lưu thành công:", result);
+
+    toast({
+      title: "Message Sent!",
+      description: "Your message has been saved. I'll get back to you soon!",
+    });
+
+    setFormData({ name: "", email: "", message: "" });
+  } catch (error) {
+    console.error("❌ Error:", error);
+    toast({
+      title: "Error",
+      description: "Something went wrong. Please try again later.",
+      variant: "destructive",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
     // Simulate form submission (replace with actual API call)
     setTimeout(() => {
