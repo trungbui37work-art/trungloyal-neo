@@ -152,26 +152,29 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* Right side - Hero Image Blended with Background */}
-        <div className="spline-container group relative h-96 lg:h-[600px] w-full overflow-hidden flex items-center justify-center">
-          <div className="relative w-full h-full overflow-hidden">
+        <div className="spline-container group relative h-96 lg:h-[600px] w-full flex items-center justify-center">
+          {/* Ambient background glow behind the image */}
+          <div className="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-tr from-primary/30 to-accent/25 blur-3xl opacity-40 animate-pulse pointer-events-none" style={{ animationDuration: '4s' }}></div>
+          
+          <div className="relative w-full h-full overflow-hidden flex items-center justify-center">
             <img 
               src={heroBg} 
               alt="Hero Background" 
-              className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 filter brightness-[1.08] contrast-[1.12] saturate-[1.15]"
+              className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 filter brightness-[1.08] contrast-[1.12] saturate-[1.2]"
+              style={{
+                maskImage: 'radial-gradient(circle at center, black 35%, transparent 70%)',
+                WebkitMaskImage: 'radial-gradient(circle at center, black 35%, transparent 70%)',
+              }}
             />
             
-            {/* Edge blending overlays: fades the image to the background color on all sides */}
-            {/* Bottom fade */}
-            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background to-transparent pointer-events-none"></div>
-            {/* Top fade */}
-            <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background to-transparent pointer-events-none"></div>
-            {/* Left fade */}
-            <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background to-transparent pointer-events-none"></div>
-            {/* Right fade */}
-            <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background to-transparent pointer-events-none"></div>
-            
-            {/* Subtle neon glow overlay to match the theme */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-accent/10 mix-blend-overlay pointer-events-none"></div>
+            {/* Color overlay to match site's cyan/purple theme */}
+            <div 
+              className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/15 mix-blend-overlay pointer-events-none"
+              style={{
+                maskImage: 'radial-gradient(circle at center, black 35%, transparent 70%)',
+                WebkitMaskImage: 'radial-gradient(circle at center, black 35%, transparent 70%)',
+              }}
+            ></div>
           </div>
         </div>
       </div>
