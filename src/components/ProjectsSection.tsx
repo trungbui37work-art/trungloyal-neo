@@ -58,7 +58,7 @@ export const ProjectsSection: React.FC = () => {
       description: "Full-stack e-commerce solution with Java Spring Boot backend and React frontend",
       tech: ["Java", "Spring Boot", "React", "MySQL"],
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-      link: "#"
+      link: "https://github.com/trungbui551/TST-Watch-Luxury"
     },
     {
       id: 2,
@@ -124,7 +124,7 @@ export const ProjectsSection: React.FC = () => {
     <section id="projects" ref={sectionRef} className="py-20 lg:py-32 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5"></div>
-      
+
       <div className="container mx-auto px-6 relative z-10">
         {/* Title */}
         <div className="projects-title text-center mb-16">
@@ -134,7 +134,7 @@ export const ProjectsSection: React.FC = () => {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my latest work, featuring modern web applications 
+            A showcase of my latest work, featuring modern web applications
             built with cutting-edge technologies.
           </p>
         </div>
@@ -151,26 +151,26 @@ export const ProjectsSection: React.FC = () => {
                 onMouseLeave={handleCardLeave}
               >
                 <div className="relative overflow-hidden rounded-t-xl">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                
+
                 <div className="p-6 space-y-4">
                   <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  
+
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {project.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
-                      <span 
+                      <span
                         key={tech}
                         className="px-3 py-1 bg-secondary text-secondary-foreground text-xs rounded-full"
                       >
@@ -178,8 +178,8 @@ export const ProjectsSection: React.FC = () => {
                       </span>
                     ))}
                   </div>
-                  
-                  <Button 
+
+                  <Button
                     className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 glow-primary"
                     onClick={() => window.open(project.link, '_blank')}
                   >
@@ -201,25 +201,25 @@ export const ProjectsSection: React.FC = () => {
                 onMouseLeave={handleCardLeave}
               >
                 <div className="relative overflow-hidden rounded-t-xl">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-                
+
                 <div className="p-6 space-y-4">
                   <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  
+
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {project.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
-                      <span 
+                      <span
                         key={tech}
                         className="px-3 py-1 bg-secondary text-secondary-foreground text-xs rounded-full"
                       >
@@ -227,8 +227,8 @@ export const ProjectsSection: React.FC = () => {
                       </span>
                     ))}
                   </div>
-                  
-                  <Button 
+
+                  <Button
                     className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 glow-primary"
                     onClick={() => window.open(project.link, '_blank')}
                   >
